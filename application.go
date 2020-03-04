@@ -66,7 +66,7 @@ func createApplication(c *gin.Context) {
 	description := c.PostForm("description")
 	mobility := c.PostForm("mobility")
 	mobilityFlag := false
-	if mobility == "true" {
+	if mobility == "on" {
 		mobilityFlag = true
 	}
 
