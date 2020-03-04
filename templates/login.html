@@ -1,0 +1,30 @@
+<!--login.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+
+<h1>Login</h1>
+
+
+<div class="panel panel-default col-sm-6">
+  <div class="panel-body">
+    <!--If there's an error, display the error-->
+    {{ if .ErrorTitle}}
+    <p class="bg-danger">
+      {{.ErrorTitle}}: {{.ErrorMessage}}
+    </p>
+    {{end}}
+    <!--Create a form that POSTs to the `/user/login` route-->
+    <form class="form" action="/user/login" method="POST">
+      <div class="form-group">
+        <label for="name">Username</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Username">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>  
+
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}

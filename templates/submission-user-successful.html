@@ -1,0 +1,14 @@
+<!--submission-user-successful.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+
+<div>
+  <strong>The user was successfully submitted.</strong>
+  
+  <!--Display the linked title of the newly created user-->
+  <a href="/user/view/{{.payload.ID}}">{{.payload.Name}}</a>
+</div>
+    
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}

@@ -1,0 +1,21 @@
+<!--applications.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+
+    <h1>Applications</h1>
+  <!--Loop over the `payload` variable, which is the list of applications-->
+  {{range .payload }}
+    <!--Create the link for the application based on its ID-->
+    <a href="/application/view/{{.ID}}">
+      <!--Display the title of the application -->
+      <h2>{{.Name}}</h2>
+          <!--Display the content of the application-->
+    <p>{{.Description}}</p>
+    </a>
+
+  {{end}}
+
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}

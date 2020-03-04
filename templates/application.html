@@ -1,0 +1,17 @@
+
+<!--application.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+
+<!--Display the title of the application-->
+<h1>{{.payload.Name}}</h1>
+
+<!--Display the content of the application-->
+<p>Description: {{.payload.Description}}</p>
+
+<!--Display the content of the application-->
+<p>Mobility: {{.payload.Mobility}}</p>
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}

@@ -1,0 +1,37 @@
+<!--menu.html-->
+
+<nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          Home
+        </a>
+      </div>
+      <ul class="nav navbar-nav">
+        {{ if .is_logged_in }}
+        <!--Display this link only when the user is logged in-->
+        <li><a href="/applications">Show Applications</a></li>
+      {{end}}
+      {{ if .is_logged_in }}
+        <!--Display this link only when the user is logged in-->
+        <li><a href="/users">Show Users</a></li>
+      {{end}}  
+        {{ if .is_logged_in }}
+          <!--Display this link only when the user is logged in-->
+          <li><a href="/application/create">Create Application</a></li>
+        {{end}}
+        {{ if .is_logged_in }}
+          <!--Display this link only when the user is logged in-->
+          <li><a href="/user/create">Create User</a></li>
+        {{end}}  
+        {{ if not .is_logged_in }}
+          <!--Display this link only when the user is not logged in-->
+          <li><a href="/user/login">Login</a></li>
+        {{end}} 
+        {{ if .is_logged_in }}
+          <!--Display this link only when the user is logged in-->
+          <li><a href="/user/logout">Logout</a></li>
+        {{end}}
+      </ul>
+    </div>
+  </nav>
