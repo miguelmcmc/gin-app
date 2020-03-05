@@ -24,7 +24,7 @@ func main() {
 
 	fmt.Println("Running server")
 	// Start serving the application
-	router.Run()
+	router.Run()  
 }
 
 func render(c *gin.Context, data gin.H, templateName string) {

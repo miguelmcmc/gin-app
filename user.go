@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"net/http"
 	"strconv"
@@ -18,14 +19,15 @@ func showLoginPage(c *gin.Context) {
 func performLogin(c *gin.Context) {
 	// Obtain the POSTed name and password values
 	name := c.PostForm("name")
+	fmt.Println("Name-login: ", name)
 
-	var sameSiteCookie http.SameSite
+	// var sameSiteCookie http.SameSite
 
 	// Check if the name/password combination is valid
 	if isUserValid(name) {
 		// If the name/password is valid set the token in a cookie
 		token := generateSessionToken()
-		c.SetCookie("token", token, 3600, "", "", sameSiteCookie, false, true)
+		c.SetCookie("token", token, 3600, "", "", false, true)
 		c.Set("is_logged_in", true)
 
 		render(c, gin.H{
@@ -49,10 +51,10 @@ func generateSessionToken() string {
 
 func logout(c *gin.Context) {
 
-	var sameSiteCookie http.SameSite
+	// var sameSiteCookie http.SameSite
 
 	// Clear the cookie
-	c.SetCookie("token", "", -1, "", "", sameSiteCookie, false, true)
+	c.SetCookie("token", "", -1, "", "", false, true)
 
 	// Redirect to the home page
 	c.Redirect(http.StatusTemporaryRedirect, "/")
