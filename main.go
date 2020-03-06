@@ -19,12 +19,14 @@ func main() {
 	// Process the templates at the start so that they don't have to be loaded
 	// from the disk again. This makes serving HTML pages very fast.
 	router.LoadHTMLGlob("templates/*")
+	router.Static("/assets", "assets")
+	router.Static("/css", "css")
 
 	initializeRoutes()
 
 	fmt.Println("Running server")
 	// Start serving the application
-	router.Run()  
+	router.Run()
 }
 
 func render(c *gin.Context, data gin.H, templateName string) {
